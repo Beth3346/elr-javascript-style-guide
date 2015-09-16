@@ -1,4 +1,4 @@
-# DRM JavaScript Style Guide
+# ELR JavaScript Style Guide
 
 Adapted from: 
 
@@ -914,47 +914,6 @@ Neatness counts.
                 andNowForSomethingCompletelyDifferent(a2.parrot);
               }
             });
-
-+ Aliasing with elr.scope
-
-    + elr.scope may be used to shorten references to namespaced symbols in programs using the Closure Library.
-
-    + Only one elr.scope invocation may be added per file. Always place it in the global scope.
-
-    + The opening elr.scope(function() { invocation must be preceded by exactly one blank line and follow any elr.provide statements, elr.require statements, or top-level comments. The invocation must be closed on the last line in the file. Append // elr.scope to the closing statement of the scope. Separate the comment from the semicolon by two spaces.
-
-    + Similar to C++ namespaces, do not indent under elr.scope declarations. Instead, continue from the 0 column.
-
-    + Only alias names that will not be re-assigned to another object (e.g., most constructors, enums, and namespaces). Do not do this (see below for how to alias a constructor):
-
-            elr.scope(function() {
-            var Button = elr.ui.Button;
-
-            Button = function() { ... };
-            ...
-
-    + Names must be the same as the last property of the global that they are aliasing.
-
-            elr.provide('my.module.SomeType');
-
-            elr.require('elr.dom');
-            elr.require('elr.ui.Button');
-
-            elr.scope(function() {
-            var Button = elr.ui.Button;
-            var dom = elr.dom;
-
-            // Alias new types after the constructor declaration.
-            my.module.SomeType = function() { ... };
-            var SomeType = my.module.SomeType;
-
-            // Declare methods on the prototype as usual:
-            SomeType.prototype.findButton = function() {
-              // Button as aliased above.
-              this.button = new Button(dom.getElement('my-button'));
-            };
-            ...
-            });  // elr.scope
 
 + Indenting wrapped lines
 
