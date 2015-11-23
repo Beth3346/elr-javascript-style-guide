@@ -635,9 +635,9 @@ Neatness counts.
                 doSomethingElse();
 
 ### Parentheses
-    + Only where required
-    + Use sparingly and in general only where required by the syntax and semantics.
-    + Never use parentheses for unary operators such as delete, typeof and void or after keywords such as return, throw as well as others (case, in or new).
++ Only where required
++ Use sparingly and in general only where required by the syntax and semantics.
++ Never use parentheses for unary operators such as delete, typeof and void or after keywords such as return, throw as well as others (case, in or new).
 
 ### Strings
 + Prefer ' over "
